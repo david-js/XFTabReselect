@@ -13,9 +13,9 @@ namespace TabReselectDemo
         {
             InitializeComponent();
 
-            var page1 = new ColorPage("Red", Color.Red);
-            var page2 = new ColorPage("Green", Color.Green);
-            var page3 = new ColorPage("Blue", Color.Blue);
+            var page1 = new NavigationPage(new ColorPage("Red", Color.Red)) { Title = "Red" };
+            var page2 = new NavigationPage(new ColorPage("Green", Color.Green)) { Title = "Green" };
+            var page3 = new NavigationPage(new ColorPage("Blue", Color.Blue)) { Title = "Blue" };
 
             Children.Add(page1);
             Children.Add(page2);
@@ -26,6 +26,9 @@ namespace TabReselectDemo
 
         private async void MainPage_OnTabReselected(Page curPage)
         {
+            if (curPage is NavigationPage)
+                curPage = (curPage as NavigationPage).CurrentPage;
+
             if (curPage is ColorPage)
             {
                 var currentColorPage = curPage as ColorPage;
