@@ -10,6 +10,7 @@ The interesting bits are:
 - TabReselectDemo\TabReselectDemo\MainPage.xaml.cs
 - TabReselectDemo\TabReselectDemo.Android\MainTabPageRenderer.cs
 - TabReselectDemo\TabReselectDemo.iOS\MainTabPageRenderer.cs
+- TabReselectDemo\TabReselectDemo.UWP\MainTabPageRenderer.cs
 
 Everything else is just there to make a functional demo.
 
@@ -17,4 +18,5 @@ Everything else is just there to make a functional demo.
 
 - Xamarin.iOS
 - Xamarin.Android (AppCompat)
+- Xamarin.UWP
 
