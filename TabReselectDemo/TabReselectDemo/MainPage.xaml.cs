@@ -27,7 +27,11 @@ namespace TabReselectDemo
         private async void MainPage_OnTabReselected(Page curPage)
         {
             if (curPage is NavigationPage)
-                curPage = (curPage as NavigationPage).CurrentPage;
+            {
+                var navPage = curPage as NavigationPage;
+                await navPage.PopToRootAsync();
+                curPage = navPage.CurrentPage;
+            }
 
             if (curPage is ColorPage)
             {
