@@ -2,6 +2,8 @@
 
 This approach to capturing tab reselection uses Xamarin.Forms 2.3.4.247, although it has been used with some older versions, and the code it relies on in Xamarin.Forms does not appear to have changed since.
 
+See http://www.criticalhittech.com/2017/09/14/tab-reselection-in-xamarin-forms-part-1/ for walkthrough of how this works.
+
 **TL;DR**
 
 This is a fully buildable Xamarin.Forms app which is largely still the template-generated code, and hence a lot of boring stuff.
