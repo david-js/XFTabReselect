@@ -16,6 +16,20 @@ namespace TabReselectDemo.iOS
     {
         private UIKit.UITabBarItem _prevItem;
 
+        // This is only needed if you want to suppress automatic pop-to-root behavior on tab reselection
+        protected override void OnElementChanged(VisualElementChangedEventArgs e)
+        {
+            base.OnElementChanged(e);
+
+            System.Diagnostics.Debug.Assert(ShouldSelectViewController == null, "Fix double-tap implementation");
+            ShouldSelectViewController = HandleUITabBarSelection;
+        }
+
+        bool HandleUITabBarSelection(UITabBarController tabBarController, UIViewController viewController)
+        {
+            return viewController != tabBarController.SelectedViewController;
+        }
+
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
