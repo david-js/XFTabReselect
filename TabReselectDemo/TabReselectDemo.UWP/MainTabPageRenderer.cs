@@ -27,17 +27,32 @@ namespace TabReselectDemo.UWP
 
         private void Control_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            var src = e.OriginalSource as TextBlock;
-            if (src != null && src.Name == "TabbedPageHeaderTextBlock" && Element is TabReselectDemo.MainPage)
+            if (!(Element is TabReselectDemo.MainPage))
+                return;
+
+            switch (e.OriginalSource)
             {
-                var newPage = src.DataContext as Xamarin.Forms.Page;
-                if (newPage == _prevPage)
-                {
-                    var page = Element as TabReselectDemo.MainPage;
-                    page.NotifyTabReselected();
-                }
-                _prevPage = newPage;
+                case Image image:
+                    if (image.Name == "TabbedPageHeaderImage")
+                        HandleReselect(image);
+                    break;
+                case TextBlock textBlock:
+                    if (textBlock.Name == "TabbedPageHeaderTextBlock")
+                        HandleReselect(textBlock);
+                    break;
             }
+        }
+
+        private void HandleReselect(FrameworkElement frameworkElement)
+        {
+            var newPage = frameworkElement.DataContext as Xamarin.Forms.Page;
+            if (newPage == _prevPage)
+            {
+                var mainPage = Element as TabReselectDemo.MainPage;
+                mainPage.NotifyTabReselected();
+            }
+
+            _prevPage = newPage;
         }
     }
 }

@@ -21,6 +21,10 @@ namespace TabReselectDemo.Droid
 {
     public class MainTabPageRenderer : TabbedPageRenderer, TabLayout.IOnTabSelectedListener
     {
+        public MainTabPageRenderer(Context context) : base(context)
+        {
+        }
+
         void TabLayout.IOnTabSelectedListener.OnTabReselected(TabLayout.Tab tab)
         {
             if (Element is MainPage)
