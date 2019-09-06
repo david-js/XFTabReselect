@@ -34,18 +34,18 @@ namespace TabReselectDemo.Droid
             }
         }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<TabbedPage> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.TabbedPage> e)
         {
             base.OnElementChanged(e);
 
             if (e.OldElement == null && e.NewElement != null)
             {
-                for (int i = 0; i <= this.ViewGroup.ChildCount - 1; i++)
+                for (int i = 0; i < this.ViewGroup.ChildCount; i++)
                 {
                     var childView = this.ViewGroup.GetChildAt(i);
                     if (childView is ViewGroup viewGroup)
                     {
-                        for (int j = 0; j <= viewGroup.ChildCount - 1; j++)
+                        for (int j = 0; j < viewGroup.ChildCount; j++)
                         {
                             var childRelativeLayoutView = viewGroup.GetChildAt(j);
                             if (childRelativeLayoutView is BottomNavigationView bottomNavigationView)
