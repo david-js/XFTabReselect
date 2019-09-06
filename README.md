@@ -7,7 +7,7 @@ The codebase has branches demonstrating different uses of the code:
 |Branch|Features|
 |------|--------|
 |master|Pretty barebones implementation, with each tab having a single ContentPage, pops up an alert when reselecting a tab.|
-|NavigationPage|Each tab has a NavigationPage which can accumulate a stack of ContentPages. Reselecting a tab pops the navigation stack for that tab.|
+|NavigationPage|Each tab has a NavigationPage which can accumulate a stack of ContentPages. Reselecting a tab pops the navigation stack for that tab. MainPage.xaml also shows how to use bottom tabs on Android with retap working.|
 
 See http://www.criticalhittech.com/2017/09/14/tab-reselection-in-xamarin-forms-part-1/ for walkthrough of how the basics of how this works.  The followup post https://criticalhittech.com/2019/03/20/tab-retap-in-xamarin-forms-revisited/ discusses the updates for tab icons.
 
